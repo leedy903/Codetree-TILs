@@ -98,8 +98,12 @@ public class Main {
             stones[3] = getEastStones(medusa);
 
             for (int i = 0; i < 4; i++) {
-                if (maxSize < stones[i].size()) {
-                    maxSize = stones[i].size();
+                int stoneCnt = 0;
+                for (Point stone : stones[i]) {
+                    stoneCnt += warriorMap[stone.y][stone.x];
+                }
+                if (maxSize < stoneCnt) {
+                    maxSize = stoneCnt;
                     stonesIdx = i;
                 }
             }
