@@ -75,6 +75,9 @@ public class Main {
             return;
         }
 
+        // remove park position from deq
+        shortestPath.poll();
+
         while (!shortestPath.isEmpty()) {
             int movingDistance = 0;
             int stoneCount = 0;
@@ -165,9 +168,6 @@ public class Main {
             shortestPath.offer(new Point(y , x));
             idx = pathMatrix[y][x];
         }
-
-        // remove park position from deq
-        shortestPath.poll();
 
         return shortestPath;
     }
