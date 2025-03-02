@@ -103,7 +103,10 @@ public class Main {
                     stonesIdx = i;
                 }
             }
-            stoneCount += maxSize;
+
+            for (Point stone : stones[stonesIdx]) {
+                stoneCount += warriorMap[stone.y][stone.x];
+            }
 
             if (stonesIdx == 0) visibleMatrix = getNorthVisibleMatrix(medusa);
             else if (stonesIdx == 1) visibleMatrix = getSouthVisibleMatrix(medusa);
