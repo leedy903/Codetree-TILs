@@ -116,7 +116,7 @@ public class Main {
                 for (int y = 0; y < N; y++) {
                     for (int x = 0; x < N; x++) {
                         if (warriorMap[y][x] != 0) {
-                            newWarriorMap[y][x] = warriorMap[y][x];
+                            newWarriorMap[y][x] += warriorMap[y][x];
                             if (!visibleMatrix[y][x]) {
                                 for (int d = 0; d < 4; d++) {
                                     int ny = y + dy[(d + (2 * i)) % 4];
@@ -124,7 +124,7 @@ public class Main {
                                     if (0 <= ny && ny < N && 0 <= nx && nx < N) {
                                         if (getDistance(ny, nx, medusa.y, medusa.x) < getDistance(y, x, medusa.y, medusa.x) && !visibleMatrix[ny][nx]) {
                                             movingDistance += warriorMap[y][x];
-                                            newWarriorMap[y][x] = 0;
+                                            newWarriorMap[y][x] -= warriorMap[y][x];
                                             newWarriorMap[ny][nx] += warriorMap[y][x];
                                             break;
                                         }
